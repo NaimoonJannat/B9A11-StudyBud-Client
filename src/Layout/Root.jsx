@@ -5,8 +5,8 @@ import Footer from "../components/Footer";
 
 const Root = () => {
     return (
-        <div className="font-sand bg-gray-800">
-            <div className="w-full bg-gray-800 md:w-4/5 mx-auto">
+        <div className="font-sand bg-gray-800 text-white">
+            <div className="w-full md:w-4/5 mx-auto">
             <Header></Header>
             <Outlet></Outlet>
             </div>
