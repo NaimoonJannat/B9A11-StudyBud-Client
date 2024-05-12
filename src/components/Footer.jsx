@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 text-white bg-gray-800">
+            <footer className="footer p-10">
   <nav>
     <h6 className="footer-title">Services</h6> 
     <a className="link link-hover">Branding</a>
@@ -24,10 +24,10 @@ const Footer = () => {
     <a className="link link-hover">Cookie policy</a>
   </nav>
 </footer> 
-<footer className="footer px-10 py-4 border-t bg-gray-900 text-white border-base-300">
+<footer className="footer px-10 py-4 border-t border-base-300">
   <aside className="items-center grid-flow-col">
    <img className="w-10" src="https://i.ibb.co/mzTRdpz/logo3.png" alt="" />
-    <div className="text-2xl font-dancing font-bold text-white">
+    <div className="text-2xl font-playfair font-bold">
             Study <span className="text-[#F50000]">Bud</span>
           </div>
   </aside> 

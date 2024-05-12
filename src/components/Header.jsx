@@ -47,8 +47,8 @@ const Header = () => {
                 to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-white btn font-bold bg-[#F50000]"
-                    : "font-bold text-white"
+                    ? "btn font-bold bg-[#F50000]"
+                    : "font-bold "
                 }
               >
                 Home
@@ -59,8 +59,8 @@ const Header = () => {
                 to="/assignments"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-white btn font-bold bg-[#F50000]"
-                    : "font-bold text-white"
+                    ? " btn font-bold bg-[#F50000]"
+                    : "font-bold "
                 }
               >
                 All Assignments
@@ -71,7 +71,7 @@ const Header = () => {
         </div>
         <div className="flex flex-row md:gap-2 justify-center items-center">
         <img className="w-8 md:w-12 hidden md:flex" src="https://i.ibb.co/mzTRdpz/logo3.png" alt=""  />
-          <div className="text-2xl font-playfair font-bold text-white">
+          <div className="text-2xl font-playfair font-bold ">
             Study <span className="text-[#F50000]">Bud</span>
           </div>
           {/* theme toggle  */}
@@ -90,8 +90,8 @@ const Header = () => {
                 to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-white btn font-bold bg-[#F50000]"
-                    : "font-bold text-white"
+                    ? "btn font-bold bg-[#F50000]"
+                    : "font-bold "
                 }
               >
                 Home
@@ -102,8 +102,8 @@ const Header = () => {
                 to="/assignments"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-white btn font-bold bg-[#F50000]"
-                    : "font-bold text-white"
+                    ? "btn font-bold bg-[#F50000]"
+                    : "font-bold "
                 }
               >
                 All Assignments
@@ -114,8 +114,8 @@ const Header = () => {
                 to="/register"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-white btn font-bold bg-[#F50000]"
-                    : "font-bold text-white"
+                    ? " btn font-bold bg-[#F50000]"
+                    : "font-bold "
                 }
               >
                 Register
@@ -126,8 +126,8 @@ const Header = () => {
                 to="/login"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-white btn font-bold bg-[#F50000]"
-                    : "font-bold text-white"
+                    ? "btn font-bold bg-[#F50000]"
+                    : "font-bold "
                 }
               >
                Login

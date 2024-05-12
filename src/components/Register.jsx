@@ -38,7 +38,7 @@ const Register = () => {
         setRegisterSuccess("");
     };
     return (
-        <div className="hero min-h-screen bg-gray-800">
+        <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:gap-8 lg:flex-row">
                 <div>
                     <div className="text-center lg:text-left">
