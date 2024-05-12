@@ -14,7 +14,7 @@ const Banner = () => {
                     <button className="px-8 py-3 text-lg font-semibold rounded bg-[#F50000] text-white">Explore Now</button>
                 </div>
             </div>
-            <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+            <div className="flex shrink-0 items-center shadow-[#F50000] shadow-2xl justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
                 <img src="https://i.ibb.co/yp3Sncz/banner-pc.png" alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
             </div>
         </div>
