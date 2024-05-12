@@ -26,7 +26,7 @@ const Footer = () => {
 </footer> 
 <footer className="footer px-10 py-4 border-t bg-gray-900 text-white border-base-300">
   <aside className="items-center grid-flow-col">
-   <img className="w-10" src="../assets/logo3.png" alt="" />
+   <img className="w-10" src="https://i.ibb.co/mzTRdpz/logo3.png" alt="" />
     <div className="text-2xl font-dancing font-bold text-white">
             Study <span className="text-[#F50000]">Bud</span>
           </div>

@@ -53,7 +53,7 @@ const Header = () => {
           </ul>
         </div>
         <div className="flex flex-row justify-center items-center">
-        <img className="w-8 md:w-12 hidden md:flex" src="https://i.ibb.co/8dwqFxN/logo3.jpg" alt=""  />
+        <img className="w-8 md:w-12 hidden md:flex" src="https://i.ibb.co/mzTRdpz/logo3.png" alt=""  />
           <div className="text-2xl font-playfair font-bold text-white">
             Study <span className="text-[#F50000]">Bud</span>
           </div>
