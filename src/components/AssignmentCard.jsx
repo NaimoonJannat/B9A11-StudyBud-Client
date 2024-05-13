@@ -20,7 +20,7 @@ const AssignmentCard = ({assignment}) => {
 		<div className="space-y-2">
 				<h3 className="text-xl font-semibold">{title}</h3>
                 <h2>Full Marks: {fullmark}</h2>
-			<div className="btn p-1 border-1 border-[#F50000] bg-[#f3a9a944]">
+			<div className="btn border-1 border-[#F50000] bg-[#f3a9a944]">
                 {difficulty}
             </div>
         </div>
