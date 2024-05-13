@@ -16,7 +16,6 @@ const Header = () => {
         }else{
           setTheme('dark');
         }
-        console.log(theme);
       }
     return (
         <div className="navbar">

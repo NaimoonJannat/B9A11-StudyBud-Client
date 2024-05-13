@@ -1,12 +1,18 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
     const[loginError, setLoginError]=useState('');
     const[loginSuccess, setLoginSuccess]=useState('');
     const[showPass, setShowPass]=useState(false);
     const emailRef= useRef(null);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const {signIn, signInGoogle, signInGithub} = useContext(AuthContext);
 
     const handleLogin = (e) =>{
         e.preventDefault();
@@ -18,22 +24,63 @@ const Login = () => {
             setLoginError('');
             setLoginSuccess('');
 
+            signIn(email, password)
+            .then(result =>{
+                console.log(result.user);
+                 // navigate after login 
+            navigate(location?.state ? location.state : '/')
+            
+                {setLoginSuccess('Logged in successfully!');
+                
+        }
+            })
+            .catch(error =>{
+                console.error(error);
+                setLoginError(error.message);
+            })
+
     } 
 
     const handleGoogleSignIn = () =>{
+      signInGoogle()
+      .then(result =>{
+          const user = result.user;
+          toast.success("Logged In Successfully!")
+          console.log(user);
+           // navigate after login 
+           navigate(location?.state ? location.state : '/')
+          // console.log(user.photoURL);
 
-    }
+      })
+      .catch(error =>{
+          console.log(error);
+          toast.error("Error logging in. Please try again later.");
+      })
+  }
 
     const handleGithubSignin = () =>{
+      signInGithub()
+      .then(result =>{
+          const user = result.user;
+          toast.success("Logged In Successfully!")
+          console.log(user);
+          // navigate after login 
+          navigate(location?.state ? location.state : '/');
+          // console.log(user.photoURL);
 
-    }
+      })
+      .catch(error =>{
+          console.log(error);
+          toast.error("Error logging in. Please try again later.");
+      })
+  }
     return (
         <div className="hero min-h-screen">
   <div className="hero-content flex-col lg:gap-10 lg:flex-row-reverse">
     <div>
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Login now!</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <p className="py-6"> Don&apos;t miss out on the opportunity to elevate your learning experience and make studying fun and collaborative. Login now to join the StudyBud community and embark on a journey towards academic excellence together!</p>
     </div>
     <img className="lg:w-2/3 hidden lg:flex rounded-lg" src="/public/form.png" alt="" />
     </div>

@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+import { toast } from "react-toastify";
 const Register = () => {
     const [registerError, setRegisterError] = useState("");
     const [registerSuccess, setRegisterSuccess] = useState("");
     const [showPass, setShowPass] = useState(false);
+    const {createUser} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -36,6 +41,19 @@ const Register = () => {
         // reset error
         setRegisterError("");
         setRegisterSuccess("");
+
+        // create user 
+        createUser(name, email, photo, password)
+        .then(() =>{
+            setRegisterSuccess('Registered Successfully!');
+            toast.success("Account Registered Successfully!");
+            navigate(location?.state ? location.state : '/')
+        })
+        .catch(error =>{
+            console.error(error);
+            setRegisterError(error.message);
+            toast.error("There was an error! Please try again later.");
+        })
     };
     return (
         <div className="hero min-h-screen">
@@ -44,9 +62,7 @@ const Register = () => {
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Register Here</h1>
                         <p className="py-6">
-                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-                            excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-                            et a id nisi.
+                        Don&apos;t miss out on the opportunity to elevate your learning experience and make studying fun and collaborative. Register now to join the StudyBud community and embark on a journey towards academic excellence together!
                         </p>
                     </div>
                     <img
@@ -123,7 +139,7 @@ const Register = () => {
                         <div>
                             <input type="checkbox" name="terms" />
                             <label htmlFor="terms">
-                                Accept our <a href="">Terms and Conditions</a>
+                                Accept our <a className="text-gray-500" href="">Terms and Conditions</a>
                             </label>
                         </div>
                         <label>
