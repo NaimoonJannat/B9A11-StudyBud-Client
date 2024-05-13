@@ -8,6 +8,7 @@ import Error from "../components/Error";
 import Create from "../components/Create";
 import Pending from "../components/Pending";
 import Attempted from "../components/Attempted";
+import PrivateRoute from "../PrivateRoute";
 
 const router = createBrowserRouter([ 
     { 
@@ -33,15 +34,15 @@ const router = createBrowserRouter([
         },
         {
             path:"/create",
-            element:<Create></Create>
+            element:<PrivateRoute><Create></Create></PrivateRoute>
         },
         {
             path:"/pending",
-            element:<Pending></Pending>
+            element:<PrivateRoute><Pending></Pending></PrivateRoute>
         },
         {
             path:"/attempted",
-            element:<Attempted></Attempted>
+            element:<PrivateRoute><Attempted></Attempted></PrivateRoute>
         }
 
 

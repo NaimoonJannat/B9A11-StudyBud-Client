@@ -67,14 +67,14 @@ const Create = () => {
 					<label className="text-base">Thumbnail URL</label>
 					<input required name="photo" type="text" placeholder="Assignment Thumbnail" className="w-full text-gray-500 p-2 rounded-md focus:ring focus:ring-opacity-75 " />
 				</div>
-                {/* <div className="col-span-full sm:col-span-3">
+                <div className="col-span-full sm:col-span-3">
 					<label className="text-base">User Email</label>
 					<input required disabled name="email" type="email" value={user.email} className="w-full text-gray-500 p-2 rounded-md focus:ring focus:ring-opacity-75 " />
 				</div>
                 <div className="col-span-full sm:col-span-3">
 					<label className="text-base">User Name</label>
 					<input required disabled name="name" type="text" value={user.displayName} className="w-full text-gray-500 p-2 rounded-md focus:ring focus:ring-opacity-75 " />
-				</div> */}
+				</div>
                 <div className="col-span-full">
 <input type="submit" className="btn w-full bg-[#F50000] mt-8" value="Create"></input>
 </div>
