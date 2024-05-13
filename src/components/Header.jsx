@@ -1,7 +1,23 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const Header = () => {
+
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut()
+      .then((result) => {
+        console.log(result);
+        toast.success("Logged Out Successfully!");
+      })
+      .catch((error) => {
+        console.error("Logout Error:", error);
+        toast.error("Error logging out. Please try again later.");
+      });
+    };
 
     // Theme controller 
     const [theme, setTheme] = useState('dark');
@@ -135,6 +151,22 @@ const Header = () => {
                Login
               </NavLink>
             </li>
+            {
+              user ? (<div className="avatar btn btn-circle shadow-xl shadow-[#F50000] border-1 border-[#F50000] btn-ghost">
+              <div className="w-14 rounded-full">
+                <img src={user.photoURL} />
+              </div>
+              <p>{user.displayName
+}</p>
+<button
+                onClick={handleSignOut}
+                className="btn font-bold bg-[#F50000] border-2"
+              >
+                Logout
+              </button>
+            </div>) :
+            <div></div>
+            }
            
             
           </ul>
