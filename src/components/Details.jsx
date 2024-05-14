@@ -11,24 +11,7 @@ const Details = () => {
 
     // State to control modal visibility and form data
     const [showModal, setShowModal] = useState(false);
-    // const [formData, setFormData] = useState({
-    //     title: assignment.title,
-    //     marks: assignment.fullmark,
-    //     username: user.displayName,
-    //     email: user.email,
-    //     documentLink: "",
-    //     note: "",
-    //     status: "pending"
-    // });
-    // Function to handle form input changes
-    // const handleInputChange = (e) => {
-    //     const { name, value } = e.target;
-    //     setFormData({
-    //         ...formData,
-    //         [name]: value
-    //     });
-    // };
-
+ 
     // Function to handle form submission
     const handleSubmit = event => {
         event.preventDefault();

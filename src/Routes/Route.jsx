@@ -42,7 +42,8 @@ const router = createBrowserRouter([
         },
         {
             path:"/pending",
-            element:<PrivateRoute><Pending></Pending></PrivateRoute>
+            element:<PrivateRoute><Pending></Pending></PrivateRoute>,
+            loader: () => fetch("http://localhost:3000/pending")
         },
         {
             path:"/attempted",
