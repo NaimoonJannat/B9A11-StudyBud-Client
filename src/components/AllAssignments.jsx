@@ -3,11 +3,14 @@ import AssignmentCard from "./AssignmentCard";
 import { useState } from "react";
 
 const AllAssignments = () => {
-    const assignments = useLoaderData();
+    const initialAssignments = useLoaderData();
+const [assignments, setAssignments] = useState(initialAssignments);
 
-    const [tasks, setTasks] = useState(assignments);
-    console.log(tasks);
-    
+    const handleDelete = (deletedId) => {
+        const updatedAssignments = assignments.filter(assignment => assignment._id !== deletedId);
+        setAssignments(updatedAssignments);
+    };
+
     return (
         <div className="text-center">
             <h2 className="text-3xl font-bold">Total <span className="text-[#F50000]">{assignments.length}</span> Assignments</h2>
@@ -16,8 +19,7 @@ const AllAssignments = () => {
             assignments.map(assignment =><AssignmentCard
             key={assignment._id}
             assignment={assignment}
-            tasks = {tasks}
-            setTasks= {setTasks}
+            onDelete={handleDelete}
             >
             </AssignmentCard>)
         }

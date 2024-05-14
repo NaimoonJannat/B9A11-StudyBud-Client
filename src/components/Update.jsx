@@ -9,9 +9,9 @@ import Swal from "sweetalert2";
 const Update = () => {
     const tasks = useLoaderData();
     const {title, description, fullmark, difficulty, duedate, photo, _id} = tasks;
-
     // to handle date picking 
     const [dueDate, setDueDate] = useState(null); 
+    
     const handleDateChange = (date) => {
         setDueDate(date);
     };
@@ -48,7 +48,7 @@ const Update = () => {
                     icon: "success",
                     confirmButtonText: 'cool'
                   });
-                  form.reset();
+                 
             
         })
 
