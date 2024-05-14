@@ -1,20 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
 
-const SubmittedCard = ({ submittedCard }) => {
+const SubmittedCard = ({ submittedCard, onDelete }) => {
     const { title, fullmark, username, documentLink, note } = submittedCard;
-    const [places, setPlaces] = useState([]);
-
-    useEffect(() => {
-        fetchPlaces();
-    }, []); 
-
-    const fetchPlaces = () => {
-        fetch('http://localhost:3000/pending')
-            .then(res => res.json())
-            .then(data => setPlaces(data))
-            .catch(error => console.log("Error fetching spots:", error));
-    };
+    
 
     // State to control modal visibility and form data
     const [showModal, setShowModal] = useState(false);
@@ -63,14 +52,22 @@ const SubmittedCard = ({ submittedCard }) => {
                 // delete data from pending collection as it is marked 
 const handleRemoveData = (id) =>{
     if (id) {
+        console.log("Deleting card with ID:", id);
         fetch(`http://localhost:3000/pending/${id}`, {
             method: 'DELETE',
         })
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            fetchPlaces();
-        });
+            Swal.fire({
+                title: "Success!",
+                text: "Submitted Successfully",
+                icon: "success",
+                confirmButtonText: "Ok",
+            });
+            onDelete(id);
+        })
+        .catch(error => console.log("Error deleting data:", error));
        
     }
 }

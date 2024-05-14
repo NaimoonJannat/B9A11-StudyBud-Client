@@ -1,9 +1,33 @@
 import { useLoaderData } from "react-router-dom";
 import SubmittedCard from "./SubmittedCard";
+import { useEffect, useState } from "react";
 
 
 const Pending = () => {
     const submittedCards = useLoaderData();
+    const [submitCards, setSubmitCards] = useState([]);
+    const fetchData = () => {
+        fetch("http://localhost:3000/pending")
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("Data fetched:", data);
+                setSubmitCards(data); // Update state with fetched data
+            })
+            .catch((error) => console.log("Error fetching data:", error));
+    };
+
+    // useEffect to fetch data on component mount
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    // Function to handle deletion of pending item
+    const handleDelete = (id) => {
+        // Filter out the deleted item from the state
+        const updatedCards = submitCards.filter((card) => card._id !== id);
+        setSubmitCards(updatedCards);  
+        fetchData(); 
+    };
    
 
     return (
@@ -14,6 +38,7 @@ const Pending = () => {
             submittedCards.map(submittedCard =><SubmittedCard
             key={submittedCard._id}
             submittedCard={submittedCard}
+            onDelete={handleDelete}
             >
             </SubmittedCard>)
         }
