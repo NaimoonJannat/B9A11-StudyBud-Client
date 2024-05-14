@@ -67,6 +67,8 @@ const AuthProvider = ({children}) => {
             unSubscribe();
         }
     },[])
+    const isLoggedIn = !!user;
+
     const authInfo ={
         user, 
         loading,
@@ -74,7 +76,8 @@ const AuthProvider = ({children}) => {
         logOut,
         signIn,
         signInGoogle,
-        signInGithub
+        signInGithub,
+        isLoggedIn
     }
 
     return (

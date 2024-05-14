@@ -3,15 +3,20 @@ import { FaEye } from "react-icons/fa";
 import { MdDelete, MdOutlineModeEdit } from "react-icons/md";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AssignmentCard = ({assignment, onDelete}) => {
-    const { user } = useContext(AuthContext);
-
+    const { user, isLoggedIn } = useContext(AuthContext);
     const {title, _id, email, fullmark, difficulty, duedate, photo, username} = assignment;
-
+    const navigate = useNavigate();
     // handle delete button 
     const handleDelete = (_id, email) => {
+        if (!isLoggedIn) {
+            // Redirect to the login page if the user is not logged in
+            navigate("/login");
+            return;
+        }
+
         if(email === user.email){
             Swal.fire({
                 title: "Are you sure?",
