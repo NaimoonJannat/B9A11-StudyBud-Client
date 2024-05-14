@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Details = () => {
     const assignments = useLoaderData();
@@ -44,8 +45,29 @@ const Details = () => {
         const submittedTask = {title, fullmark, status, note, documentLink, email, username};
 
         console.log(submittedTask);
-
         setShowModal(false);
+
+         // send data to the server 
+         fetch('http://localhost:3000/pending',{
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(submittedTask)
+
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            Swal.fire({
+                    title: "Success!",
+                    text: "Submitted Successfully",
+                    icon: "success",
+                    confirmButtonText: 'Ok'
+                  });
+                  form.reset();
+            
+        })
     };
 
     return (
