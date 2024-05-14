@@ -47,7 +47,8 @@ const router = createBrowserRouter([
         },
         {
             path:"/attempted",
-            element:<PrivateRoute><Attempted></Attempted></PrivateRoute>
+            element:<PrivateRoute><Attempted></Attempted></PrivateRoute>,
+            loader: () => fetch("http://localhost:3000/marked")
         },
         {
             path:"/update/:id",
