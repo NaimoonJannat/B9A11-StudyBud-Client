@@ -10,6 +10,7 @@ import Pending from "../components/Pending";
 import Attempted from "../components/Attempted";
 import PrivateRoute from "../PrivateRoute";
 import Update from "../components/Update";
+import Details from "../components/Details";
 
 const router = createBrowserRouter([ 
     { 
@@ -51,6 +52,14 @@ const router = createBrowserRouter([
             path:"/update/:id",
             element:<PrivateRoute><Update></Update></PrivateRoute>,
             loader: ({params}) => fetch(`http://localhost:3000/assignments/${params.id}`)
+        },
+        {
+            path: "/assignments/assignment/:id",
+            element:
+            <PrivateRoute>
+                <Details></Details>
+            </PrivateRoute>,
+             loader: () => fetch("http://localhost:3000/assignments")
         }
 
 

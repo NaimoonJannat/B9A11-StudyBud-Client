@@ -81,9 +81,9 @@ const AssignmentCard = ({assignment, onDelete, showButtons}) => {
        {
         showButtons && (
             <div className="flex gap-2 justify-center items-center">
-            <button className="btn btn-circle text-[#F50000] border-1 border-[#F50000]">
+            <Link to={`assignment/${_id}`} className="btn btn-circle text-[#F50000] border-1 border-[#F50000]">
             <FaEye />
-            </button>
+            </Link>
             <Link to={`/update/${_id}`} className="btn btn-circle text-[#F50000] border-1 border-[#F50000]">
             <MdOutlineModeEdit />
             </Link >
