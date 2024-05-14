@@ -23,7 +23,7 @@ const Details = () => {
         const username=user.displayName;
         const documentLink=form.documentLink.value;
         const note = form.note.value;
-        const status = 'pending';
+        const status = 'Pending';
 
         const submittedTask = {title, fullmark, status, note, documentLink, email, username};
 

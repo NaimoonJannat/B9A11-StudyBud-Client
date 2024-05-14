@@ -23,23 +23,37 @@ const SubmittedCard = ({ submittedCard }) => {
         const feedback = form.feedback?.value;
         const markedTask={title, fullmark, status, email, username, marks, feedback}
         console.log(markedTask);
-
         
-
         // After submission, you can close the modal
         setShowModal(false);
+          // send data to the server 
+          fetch('http://localhost:3000/marked',{
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(markedTask)
 
-        // Show success message
-        Swal.fire({
-            title: "Success!",
-            text: "Marks submitted successfully",
-            icon: "success",
-            confirmButtonText: "Ok"
-        });
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            Swal.fire({
+                    title: "Success!",
+                    text: "Submitted Successfully",
+                    icon: "success",
+                    confirmButtonText: 'Ok'
+                  });
+                  form.reset();
 
-        // Reset form fields
-        form.reset();
-    };
+                  
+            
+        })
+
+        // delete data from pending collection as it is marked 
+
+       
+   };
 
     return (
         <div className="card w-11/12 mx-auto shadow-2xl border-2 border-[#F50000] shadow-[#F50000]">
@@ -70,7 +84,7 @@ const SubmittedCard = ({ submittedCard }) => {
                             <input type="number" name="marks" className="bg-gray-100 px-4 py-2 mb-4 w-full" required />
                             <label className="block mb-2">Feedback:</label>
                             <textarea name="feedback" className="bg-gray-100 px-4 py-2 mb-4 w-full h-24"></textarea>
-                            <button type="submit" className="bg-red-500 text-white px-4 py-2">Submit</button>
+                            <button type="submit" className="bg-[#F50000] btn text-white px-4 py-2">Submit</button>
                         </form>
                     </div>
                 </div>

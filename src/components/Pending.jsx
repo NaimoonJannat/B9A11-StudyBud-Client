@@ -5,6 +5,7 @@ import SubmittedCard from "./SubmittedCard";
 const Pending = () => {
     const submittedCards = useLoaderData();
    
+
     return (
         <div className="text-center">
             <h2 className="text-3xl font-bold">Total <span className="text-[#F50000]">{submittedCards.length}</span> Pending Assignments</h2>
