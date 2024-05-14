@@ -1,27 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { FaEye } from "react-icons/fa";
 import { MdDelete, MdOutlineModeEdit } from "react-icons/md";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 
-const AssignmentCard = ({assignment}) => {
+const AssignmentCard = ({assignment, tasks, setTasks}) => {
     const { user } = useContext(AuthContext);
 
     const {title, _id, email, fullmark, difficulty, duedate, photo, username} = assignment;
-
-    const [places, setPlaces] = useState([]);
-    
-
-    useEffect(() => {
-        fetchPlaces();
-    }, []); 
-
-    const fetchPlaces = () => {
-        fetch('http://localhost:3000/assignments')
-            .then(res => res.json())
-            .then(data => setPlaces(data))
-            .catch(error => console.log("Error fetching assignments:", error));
-    };
 
     // handle delete button 
     const handleDelete = (_id, email) => {
@@ -36,7 +22,7 @@ const AssignmentCard = ({assignment}) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://localhost:3000/assignments/${_id}`, {
+                fetch(`http://localhost:3000/assignments/${_id}`, {
                     method: 'DELETE',
                 })
                 .then(res => res.json())
@@ -45,12 +31,15 @@ const AssignmentCard = ({assignment}) => {
                     if (data.deletedCount > 0) {
                         Swal.fire({
                             title: "Deleted!",
-                            text: "Your Spot has been deleted.",
+                            text: "Your Assignment  has been deleted.",
                             icon: "success"
                         });
-
-                        
-                        fetchPlaces();
+                        const remaining = tasks.filter(task => task._id !== _id);
+                        console.log(remaining);
+                        console.log(tasks);
+                        setTasks(remaining);
+                        console.log(tasks);
+        
                     }
                 })
                 .catch(error => console.log("Error deleting assignment:", error));
