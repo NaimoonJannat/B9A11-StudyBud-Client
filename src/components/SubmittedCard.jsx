@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 const SubmittedCard = ({ submittedCard }) => {
     const { title, fullmark, username, documentLink, note } = submittedCard;
+    const [places, setPlaces] = useState([]);
 
+    useEffect(() => {
+        fetchPlaces();
+    }, []); 
+
+    const fetchPlaces = () => {
+        fetch('http://localhost:3000/pending')
+            .then(res => res.json())
+            .then(data => setPlaces(data))
+            .catch(error => console.log("Error fetching spots:", error));
+    };
 
     // State to control modal visibility and form data
     const [showModal, setShowModal] = useState(false);
@@ -23,7 +34,7 @@ const SubmittedCard = ({ submittedCard }) => {
         const feedback = form.feedback?.value;
         const markedTask={title, fullmark, status, email, username, marks, feedback}
         console.log(markedTask);
-        
+        console.log(submittedCard._id);
         // After submission, you can close the modal
         setShowModal(false);
           // send data to the server 
@@ -49,11 +60,27 @@ const SubmittedCard = ({ submittedCard }) => {
                   
             
         })
+                // delete data from pending collection as it is marked 
+const handleRemoveData = (id) =>{
+    if (id) {
+        fetch(`http://localhost:3000/pending/${id}`, {
+            method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            fetchPlaces();
+        });
+       
+    }
+}
+        handleRemoveData(submittedCard._id)
 
-        // delete data from pending collection as it is marked 
+
+}
 
        
-   };
+
 
     return (
         <div className="card w-11/12 mx-auto shadow-2xl border-2 border-[#F50000] shadow-[#F50000]">
