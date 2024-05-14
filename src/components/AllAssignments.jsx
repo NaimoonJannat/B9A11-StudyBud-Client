@@ -20,6 +20,7 @@ const [assignments, setAssignments] = useState(initialAssignments);
             key={assignment._id}
             assignment={assignment}
             onDelete={handleDelete}
+            showButtons={true}
             >
             </AssignmentCard>)
         }

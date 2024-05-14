@@ -16,7 +16,8 @@ const Home = () => {
             assignments.slice(0, 6).map(assignment =>
                 <AssignmentCard
                 key={assignment._id}
-                assignment={assignment}>
+                assignment={assignment}
+                showButtons={false}>
                 </AssignmentCard>
             )
         }

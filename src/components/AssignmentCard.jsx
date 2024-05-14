@@ -5,7 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 
-const AssignmentCard = ({assignment, onDelete}) => {
+const AssignmentCard = ({assignment, onDelete, showButtons}) => {
     const { user, isLoggedIn } = useContext(AuthContext);
     const {title, _id, email, fullmark, difficulty, duedate, photo, username} = assignment;
     const navigate = useNavigate();
@@ -78,7 +78,9 @@ const AssignmentCard = ({assignment, onDelete}) => {
                 {difficulty}
             </div>
         </div>
-        <div className="flex gap-2 justify-center items-center">
+       {
+        showButtons && (
+            <div className="flex gap-2 justify-center items-center">
             <button className="btn btn-circle text-[#F50000] border-1 border-[#F50000]">
             <FaEye />
             </button>
@@ -89,6 +91,8 @@ const AssignmentCard = ({assignment, onDelete}) => {
             <MdDelete />
             </button >
         </div>
+        )
+       }
             
 	</div>
 
