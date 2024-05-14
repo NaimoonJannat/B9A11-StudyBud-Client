@@ -9,6 +9,7 @@ import Create from "../components/Create";
 import Pending from "../components/Pending";
 import Attempted from "../components/Attempted";
 import PrivateRoute from "../PrivateRoute";
+import Update from "../components/Update";
 
 const router = createBrowserRouter([ 
     { 
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
         {
             path:"/attempted",
             element:<PrivateRoute><Attempted></Attempted></PrivateRoute>
+        },
+        {
+            path:"/update/:id",
+            element:<PrivateRoute><Update></Update></PrivateRoute>,
+            loader: ({params}) => fetch(`http://localhost:3000/assignments/${params.id}`)
         }
 
 
