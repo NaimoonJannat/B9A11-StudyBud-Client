@@ -31,7 +31,7 @@ const Details = () => {
         setShowModal(false);
 
          // send data to the server 
-         fetch('http://localhost:3000/pending',{
+         fetch('https://b9a11-studybud-server.vercel.app/pending',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

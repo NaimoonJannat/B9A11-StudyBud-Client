@@ -30,7 +30,7 @@ const Create = () => {
         console.log(newTask);
 
         // send data to the server 
-        fetch('http://localhost:3000/assignments',{
+        fetch('https://b9a11-studybud-server.vercel.app/assignments',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

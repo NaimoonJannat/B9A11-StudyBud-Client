@@ -12,7 +12,9 @@ const Attempted = () => {
     const filteredTasks = [...pending, ...marked].filter(task => task.email === user.email);
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="text-center space-y-4">
+            <h2 className="text-3xl font-bold">My <span className="text-[#F50000]">{filteredTasks.length}</span> Attempted Assignments</h2>
+            <div className="flex flex-col gap-4">
             {
                 filteredTasks.map(filteredTask => (
                     <MyCards
@@ -21,6 +23,7 @@ const Attempted = () => {
                     />
                 ))
             }
+        </div>
         </div>
     );
 };

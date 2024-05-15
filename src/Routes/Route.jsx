@@ -21,12 +21,12 @@ const router = createBrowserRouter([
         {
             path:"/",
             element: <Home></Home>,
-            loader: () => fetch("http://localhost:3000/assignments")
+            loader: () => fetch("https://b9a11-studybud-server.vercel.app/assignments")
         },
         {
             path:"/assignments",
             element: <AllAssignments></AllAssignments>,
-            loader: () => fetch("http://localhost:3000/assignments")
+            loader: () => fetch("https://b9a11-studybud-server.vercel.app/assignments")
         },
         {
             path:"/login",
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         {
             path:"/pending",
             element:<PrivateRoute><Pending></Pending></PrivateRoute>,
-            loader: () => fetch("http://localhost:3000/pending")
+            loader: () => fetch("https://b9a11-studybud-server.vercel.app/pending")
         },
         {
             path:"/attempted",
@@ -51,11 +51,11 @@ const router = createBrowserRouter([
             loader: async () => {
                 try {
                     // Fetch data from the first link
-                    const pendingResponse = await fetch("http://localhost:3000/pending");
+                    const pendingResponse = await fetch("https://b9a11-studybud-server.vercel.app/pending");
                     const pendingData = await pendingResponse.json();
         
                     // Fetch data from the second link
-                    const markedResponse = await fetch("http://localhost:3000/marked");
+                    const markedResponse = await fetch("https://b9a11-studybud-server.vercel.app/marked");
                     const markedData = await markedResponse.json();
         
                     // Combine the data into an object
@@ -74,7 +74,7 @@ const router = createBrowserRouter([
         {
             path:"/update/:id",
             element:<PrivateRoute><Update></Update></PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:3000/assignments/${params.id}`)
+            loader: ({params}) => fetch(`https://b9a11-studybud-server.vercel.app/assignments/${params.id}`)
         },
         {
             path: "/assignments/assignment/:id",
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
             <PrivateRoute>
                 <Details></Details>
             </PrivateRoute>,
-             loader: () => fetch("http://localhost:3000/assignments")
+             loader: () => fetch("https://b9a11-studybud-server.vercel.app/assignments")
         }
 
 

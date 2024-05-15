@@ -27,7 +27,7 @@ const SubmittedCard = ({ submittedCard }) => {
         // After submission, you can close the modal
         setShowModal(false);
           // send data to the server 
-          fetch('http://localhost:3000/marked',{
+          fetch('https://b9a11-studybud-server.vercel.app/marked',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -52,7 +52,7 @@ const SubmittedCard = ({ submittedCard }) => {
 const handleRemoveData = (id) =>{
     if (id) {
         console.log("Deleting card with ID:", id);
-        fetch(`http://localhost:3000/pending/${id}`, {
+        fetch(`https://b9a11-studybud-server.vercel.app/pending/${id}`, {
             method: 'DELETE',
         })
         .then(res => res.json())

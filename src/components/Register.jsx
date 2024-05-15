@@ -67,7 +67,7 @@ const Register = () => {
                     </div>
                     <img
                         className="lg:w-2/3 hidden lg:flex rounded-lg"
-                        src="/public/register.png"
+                        src="https://i.ibb.co/zGQC2fb/register.png"
                         alt=""
                     />
                 </div>

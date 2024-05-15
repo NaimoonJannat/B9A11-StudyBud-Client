@@ -82,7 +82,7 @@ const Login = () => {
       <h1 className="text-5xl font-bold">Login now!</h1>
       <p className="py-6"> Don&apos;t miss out on the opportunity to elevate your learning experience and make studying fun and collaborative. Login now to join the StudyBud community and embark on a journey towards academic excellence together!</p>
     </div>
-    <img className="lg:w-2/3 hidden lg:flex rounded-lg" src="/public/form.png" alt="" />
+    <img className="lg:w-2/3 hidden lg:flex rounded-lg" src="https://i.ibb.co/5K6VYsF/form.png" alt="" />
     </div>
     <div className="card p-4 lg:p-8 shrink-0 w-full max-w-lg shadow-[#F50000] shadow-2xl bg-gray-800">
     <form className="space-y-8 p-4" onSubmit={handleLogin}>

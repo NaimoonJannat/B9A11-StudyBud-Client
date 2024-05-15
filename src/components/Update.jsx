@@ -31,7 +31,7 @@ const Update = () => {
         const updatedTask = {title, description, fullmark, difficulty, duedate, photo};
 
          // send data to the server 
-         fetch(`http://localhost:3000/assignments/${_id}`,{
+         fetch(`https://b9a11-studybud-server.vercel.app/assignments/${_id}`,{
             method: 'PUT',
             headers: {
                 'content-type' : 'application/json'

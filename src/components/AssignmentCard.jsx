@@ -28,7 +28,7 @@ const AssignmentCard = ({assignment, onDelete, showButtons}) => {
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:3000/assignments/${_id}`, {
+                    fetch(`https://b9a11-studybud-server.vercel.app/assignments/${_id}`, {
                         method: 'DELETE',
                     })
                     .then(res => res.json())
