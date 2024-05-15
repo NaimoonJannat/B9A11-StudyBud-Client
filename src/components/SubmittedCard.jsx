@@ -18,11 +18,12 @@ const SubmittedCard = ({ submittedCard, onDelete }) => {
         const fullmark=submittedCard.fullmark;
         const status="Completed";
         const email=submittedCard.email;
+        const documentLink = submittedCard.documentLink;
         const username=submittedCard.username;
         const marks = form.marks.value;
         const feedback = form.feedback?.value;
-        const markedTask={title, fullmark, status, email, username, marks, feedback}
-        console.log(markedTask);
+        const markedTask={title, fullmark, documentLink, status, email, username, marks, feedback}
+        // console.log(markedTask);
         console.log(submittedCard._id);
         // After submission, you can close the modal
         setShowModal(false);
