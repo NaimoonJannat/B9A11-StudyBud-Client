@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
@@ -11,7 +11,7 @@ const Update = () => {
     const {title, description, fullmark, difficulty, duedate, photo, _id} = tasks;
     // to handle date picking 
     const [dueDate, setDueDate] = useState(null); 
-    
+    const navigate = useNavigate();
     const handleDateChange = (date) => {
         setDueDate(date);
     };
@@ -48,7 +48,7 @@ const Update = () => {
                     icon: "success",
                     confirmButtonText: 'cool'
                   });
-                 
+                  navigate("/assignments");
             
         })
 
@@ -100,6 +100,7 @@ const Update = () => {
 					<label className="text-base">Due Date</label>
                     <DatePicker
                                             selected={dueDate}
+                                            required
                                             name="duedate"
                                             onChange={handleDateChange}
                                             defaultValue={duedate}

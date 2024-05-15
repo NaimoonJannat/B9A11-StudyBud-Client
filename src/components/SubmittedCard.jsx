@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-const SubmittedCard = ({ submittedCard, onDelete }) => {
+const SubmittedCard = ({ submittedCard }) => {
     const { title, fullmark, username, documentLink, note } = submittedCard;
     
 
@@ -23,8 +23,7 @@ const SubmittedCard = ({ submittedCard, onDelete }) => {
         const marks = form.marks.value;
         const feedback = form.feedback?.value;
         const markedTask={title, fullmark, documentLink, status, email, username, marks, feedback}
-        // console.log(markedTask);
-        console.log(submittedCard._id);
+      
         // After submission, you can close the modal
         setShowModal(false);
           // send data to the server 
@@ -46,8 +45,7 @@ const SubmittedCard = ({ submittedCard, onDelete }) => {
                     confirmButtonText: 'Ok'
                   });
                   form.reset();
-
-                  
+                  window.location.reload();
             
         })
                 // delete data from pending collection as it is marked 
@@ -66,7 +64,6 @@ const handleRemoveData = (id) =>{
                 icon: "success",
                 confirmButtonText: "Ok",
             });
-            onDelete(id);
         })
         .catch(error => console.log("Error deleting data:", error));
        
