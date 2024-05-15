@@ -29,7 +29,7 @@ const AllAssignments = () => {
                 <label htmlFor="difficulty">Filter by Difficulty:</label>
                 <select
                     id="difficulty"
-                    className="ml-2 p-2 border border-gray-300 rounded"
+                    className="ml-2 p-2 border-2 border-[#F50000] rounded"
                     value={selectedDifficulty}
                     onChange={handleDifficultyChange}
                 >
