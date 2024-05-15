@@ -48,7 +48,28 @@ const router = createBrowserRouter([
         {
             path:"/attempted",
             element:<PrivateRoute><Attempted></Attempted></PrivateRoute>,
-            loader: () => fetch("http://localhost:3000/marked")
+            loader: async () => {
+                try {
+                    // Fetch data from the first link
+                    const pendingResponse = await fetch("http://localhost:3000/pending");
+                    const pendingData = await pendingResponse.json();
+        
+                    // Fetch data from the second link
+                    const markedResponse = await fetch("http://localhost:3000/marked");
+                    const markedData = await markedResponse.json();
+        
+                    // Combine the data into an object
+                    const combinedData = {
+                        pending: pendingData,
+                        marked: markedData
+                    };
+        
+                    return combinedData;
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                    throw error; // Propagate the error
+                }
+            }
         },
         {
             path:"/update/:id",
