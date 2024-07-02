@@ -43,3 +43,28 @@ StudyBud is an online platform designed to facilitate group study sessions, allo
 ## Live Link
 
 Access the live version of StudyBud [here](https://b9a11-studybud.web.app).
+
+## Installation
+
+To get a local copy up and running, follow these steps:
+
+### Prerequisites
+
+Make sure you have Node.js and npm installed on your machine. You can download them from [here](https://nodejs.org/).
+
+### Installation
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/NaimoonJannat/B9A12-AssetGuard-Client.git
+
+ 2. **Navigate to the project directory:** 
+   cd studybud
+
+3. **Install Dependencies:**
+    npm i 
+    npm run dev
+
+4. Open your browser and navigate to 'http://localhost:3000' to see the application running.
+
+
