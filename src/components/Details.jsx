@@ -11,7 +11,7 @@ const Details = () => {
 
     // State to control modal visibility and form data
     const [showModal, setShowModal] = useState(false);
- 
+
     // Function to handle form submission
     const handleSubmit = event => {
         event.preventDefault();
@@ -27,7 +27,7 @@ const Details = () => {
 
         const submittedTask = {title, fullmark, status, note, documentLink, email, username};
 
-        console.log(submittedTask);
+        // console.log(submittedTask);
         setShowModal(false);
 
          // send data to the server 

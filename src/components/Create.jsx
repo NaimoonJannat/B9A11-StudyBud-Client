@@ -27,7 +27,7 @@ const Create = () => {
 
         const newTask = {title, description, fullmark, difficulty, duedate, photo, email, username};
 
-        console.log(newTask);
+        // console.log(newTask);
 
         // send data to the server 
         fetch('https://b9a11-studybud-server.vercel.app/assignments',{

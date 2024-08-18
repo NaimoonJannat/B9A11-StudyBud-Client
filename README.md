@@ -42,7 +42,7 @@ StudyBud is an online platform designed to facilitate group study sessions, allo
 
 ## Live Link
 
-Access the live version of StudyBud [here](https://b9a11-studybud.web.app).
+Access the live version of StudyBud [here](https://b9a11-studybud-client.vercel.app).
 
 ## Installation
 

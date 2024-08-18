@@ -23,7 +23,7 @@ const MyCards = ({ filteredTask }) => {
                     <p>Feedback: {feedback}</p>
                 </div>
                 <div className="w-full md:w-1/3">
-                <button className="bg-[#F50000] md:my-14 btn font-bold py-2 px-4 rounded" onClick={openModal}>Preview</button>
+                    <button className="bg-[#F50000] md:my-14 btn font-bold py-2 px-4 rounded" onClick={openModal}>Preview</button>
                 </div>
             </div>
 
@@ -35,7 +35,14 @@ const MyCards = ({ filteredTask }) => {
                             <button className="absolute top-2 right-2 btn btn-circle" onClick={closeModal}>X</button>
                             <h2 className="text-lg font-semibold">Document Preview</h2>
                             <div className="mt-4">
-                                <iframe src={documentLink} width="100%" height="500px" ></iframe>
+                                <iframe 
+                                    src={documentLink} 
+                                    width="100%" 
+                                    height="500px" 
+                                    style={{ border: 'none' }} 
+                                    title="Document Preview"
+                                >
+                                </iframe>
                             </div>
                         </div>
                     </div>
